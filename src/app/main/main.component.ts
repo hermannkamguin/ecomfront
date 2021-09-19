@@ -16,16 +16,19 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.startservice.helloWord().subscribe(
+      (value) => {
+        this.hello = value;
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        console.log("complete");
+      })
+
   }
 
-  helloWord(): void {
-
-
-    this.startservice.helloWord().subscribe((value)=> {
-      console.log(value);
-    }
-    (error)=> {
-      console.log("erreur");
-    })
+  helloWords(): void {
   }
 }
