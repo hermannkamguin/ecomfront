@@ -13,6 +13,7 @@ export class StartService {
 
   helloWord(): Observable<string>{
 
+
     // @ts-ignore
     return this.http.get(this.backUrl + 'hello');
 

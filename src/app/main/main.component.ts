@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {StartService} from "../../services/start.service";
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 
 @Component({
   selector: 'app-main',
@@ -10,24 +10,22 @@ import {Subject} from "rxjs";
 export class MainComponent implements OnInit {
 
 
-  constructor(private startservice: StartService ) { }
+  public hello: string | undefined;
+
+  constructor(private startservice: StartService ) {
+  }
 
   ngOnInit(): void {
   }
 
-  helloWord(): string{
-    let hello = new Subject<string>()
+  helloWord(): void {
 
-    this.startservice.helloWord().subscribe((value) => {
+
+    this.startservice.helloWord().subscribe((value)=> {
       console.log(value);
-      hello.next(value);
-    },
-      (error) => {
-      console.log("erreurr");
-      });
-
-    // @ts-ignore
-    return hello.asObservable();
+    }
+    (error)=> {
+      console.log("erreur");
+    })
   }
-
 }
