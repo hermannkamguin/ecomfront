@@ -12,11 +12,7 @@ export class StartService {
   constructor(private http: HttpClient) { }
 
   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-      "Access-Control-Allow-Origin": "*",
-
-    } ),responseType: 'text' as 'json'
+    responseType: 'text' as 'json'
   };
 
   helloWord(): Observable<string>{
