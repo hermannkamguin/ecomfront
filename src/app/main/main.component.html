@@ -1,1 +1,13 @@
-<p>hhh {{hello}}</p>
+<form [formGroup]="userForm" (ngSubmit)="submit()">
+  <h2>Ajouter un utilisateur</h2>
+  <input type="text" id="name" class="form-control" formControlName="name" placeholder="name"/>
+  <input type="text" id="email" class="form-control" formControlName="email" placeholder="email"/>
+
+  <input type="submit" value="Ajouter"/>
+</form>
+
+
+<h2>Liste des utilisateurs</h2>
+<div *ngFor="let u of user">
+  <p> name : {{u.name }} and email : {{u.email}}</p>
+</div>

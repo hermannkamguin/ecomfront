@@ -13,6 +13,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   allUser(): Observable<User[]>{
-    return this.http.get<User[]>(this.backUrl + "/UserAll");
+    return this.http.get<User[]>(this.backUrl + "/users");
+  }
+
+  addUser(user: User): Observable<boolean>{
+
+    return this.http.post<boolean>(this.backUrl + "/user/add", user);
   }
 }

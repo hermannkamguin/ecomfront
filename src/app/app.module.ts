@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
+import {ReactiveFormsModule} from "@angular/forms";
+import{SharingService} from "../services/sharing.service";
+
 
 @NgModule({
   declarations: [
@@ -12,9 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     HttpClientModule,
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [SharingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
